@@ -1,0 +1,29 @@
+require:
+  - rubocop-rails
+  - rubocop-rspec
+
+AllCops:
+  NewCops: enable
+  DisplayCopNames: true
+  TargetRubyVersion: 2.7
+  Exclude:
+    - 'bin/*'
+    - 'config/**/*'
+    - 'db/**/migrate/**/*'
+    - 'db/**/*schema.rb'
+    - db/seeds.rb
+    - 'tmp/**/*'
+    - 'vendor/**/*'
+    - 'spec/swagger_helper.rb'
+
+Style/HashSyntax:
+  Enabled: true
+  EnforcedShorthandSyntax: never 
+Style/Documentation:
+  Enabled: false
+RSpec/IndexedLet:
+  Enabled: false
+RSpec/LetSetup:
+  Enabled: false
+RSpec/MultipleMemoizedHelpers:
+  Enabled: false

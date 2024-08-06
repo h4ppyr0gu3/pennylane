@@ -1,0 +1,27 @@
+<table>
+  <%- if locals[:should_sort] %>
+    <%= render 'recipes/index_table_header' %>
+  <% else %>
+    <tr>
+      <th> <strong>ID</strong> </th>
+      <th> <strong>Title</strong> </th>
+      <th> <strong>Category</strong> </th>
+      <th> <strong>Author</strong> </th>
+      <th> <strong>Cook Time</strong> </th>
+      <th> <strong>Prep Time</strong> </th>
+      <th> <strong>Rating</strong> </th>
+    </tr>
+  <% end %>
+  <% @recipes.each do |recipe| %>
+    <tr>
+      <td> <%= link_to recipe.id, recipe_path(recipe.id) %> </td>
+      <td>
+        <%= recipe.title %></td>
+      <td><%= recipe.category %></td>
+      <td><%= recipe.author %></td>
+      <td><%= recipe.cooking_time %></td>
+      <td><%= recipe.prep_time %></td>
+      <td><%= recipe.ratings %></td>
+    </tr>
+  <% end %>
+</table>

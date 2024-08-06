@@ -1,0 +1,40 @@
+<%- if current_user.present? %>
+
+  <%= button_to "Log out", destroy_user_session_path, method: :delete %>
+
+  <h1>Your Ingredients</h1>
+  <p>This gives you a list of all the ingredients in the database that you have, you are able to delete the things you don't have and we will show you results of the recipes that you can make</p>
+
+  <%= form_with url: ingredients_path do |f| %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.submit %>
+  <% end %>
+
+  <table>
+    <tr>
+      <th>Ingredient</th>
+      <th>actions</th>
+    </tr>
+    <% current_user.listed_ingredients.each do |ingredient| %>
+      <tr>
+        <td><%= ingredient %></td>
+        <td>
+          <%= button_to "Delete", ingredient_path(ingredient), method: :delete %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+
+  <h1>Possible Recipes</h1>
+
+  <%= render 'recipes/table', locals: { should_sort: false } %>
+
+
+<% else %>
+  <%= link_to "Sign up", new_user_registration_path %>
+  <%= link_to "Log in", new_user_session_path %>
+<% end %>
+
+

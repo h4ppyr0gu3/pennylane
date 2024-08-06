@@ -1,0 +1,13 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>All Recipes</h1>
+
+<%= search_form_for @q, url: recipes_path do |f| %>
+  <%= f.label :Search %>
+  <%= f.search_field :title_or_ingredients_name_or_author_or_category_cont %>
+  <%= f.submit %>
+<% end %>
+
+<%= render 'recipes/table', :locals => { should_sort: true } %>
+
+<%== pagy_nav(@pagy) if @pagy.pages > 1 %>
