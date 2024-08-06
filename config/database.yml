@@ -84,7 +84,7 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
-  <<: *default
-  database: pennylane_production
-  username: pennylane
-  password: <%= ENV["PENNYLANE_DATABASE_PASSWORD"] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  url: <%= ENV.fetch("DATABASE_URL") { "postgres://localhost/pennylane_production" } %>
