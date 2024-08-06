@@ -28,6 +28,8 @@ group :development, :test do
   gem 'rails-controller-testing', '~> 1.0'
   gem 'rspec-rails', '~> 6.1'
   gem 'rubocop', '~> 1.65'
+  gem 'rubocop-rails', '~> 2.25'
+  gem 'rubocop-rspec', '~> 3.0'
 end
 
 group :development do
@@ -38,7 +40,3 @@ group :test do
   gem 'capybara'
   gem 'selenium-webdriver'
 end
-
-gem 'rubocop-rails', '~> 2.25'
-
-gem 'rubocop-rspec', '~> 3.0'

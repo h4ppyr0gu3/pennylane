@@ -15,6 +15,13 @@ There are some possible improvements to make here, such as:
 - Add category table related to recipes
 - Add cuisine table related to recipes
 - Add author table related to recipes
+- Proper Input of Recipes with Ingredients would provide better results
+
+## Shortfalls
+
+- Currently the use of endpoints is not following best practices
+- no access control
+- no validations
 
 ## Installation
 
